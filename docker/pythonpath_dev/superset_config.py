@@ -27,6 +27,9 @@ from celery.schedules import crontab
 from flask_caching.backends.filesystemcache import FileSystemCache
 
 logger = logging.getLogger()
+SECRET_KEY = 'ZKRDthLcENr/n5BD1BfGWqN969eDKpNaX6Aw6aWidcP1cV0WS+FjHwWY'
+# SQLALCHEMY_DATABASE_URI = "postgresql+psycopg2://pguser:pgpwd@some.host/superset"
+# SQLALCHEMY_ECHO = True
 
 DATABASE_DIALECT = os.getenv("DATABASE_DIALECT")
 DATABASE_USER = os.getenv("DATABASE_USER")
@@ -47,7 +50,10 @@ SQLALCHEMY_DATABASE_URI = (
     f"{DATABASE_USER}:{DATABASE_PASSWORD}@"
     f"{DATABASE_HOST}:{DATABASE_PORT}/{DATABASE_DB}"
 )
-
+LANGUAGES = {
+    'en': {'flag': 'us', 'name': 'English'},
+    'fa': {'flag': 'ir', 'name': 'فارسی'},
+}
 SQLALCHEMY_EXAMPLES_URI = (
     f"{DATABASE_DIALECT}://"
     f"{EXAMPLES_USER}:{EXAMPLES_PASSWORD}@"
