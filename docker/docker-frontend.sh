@@ -20,7 +20,7 @@ set -e
 # Packages needed for puppeteer:
 apt update
 apt install -y chromium
-
+chown -R node:node /root
 cd /app/superset-frontend
 npm install -f --no-optional --global webpack webpack-cli
 npm install -f --no-optional
